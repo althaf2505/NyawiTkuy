@@ -13,7 +13,7 @@
         </nav>
         <section class="product-detail">
             <div class="detail-image">
-                <img src="{{ $product->image ? (str_starts_with($product->image, 'http') ? $product->image : asset($product->image)) : 'https://images.unsplash.com/photo-1600932713394-7e335f8b9061?auto=format&fit=crop&w=1200&q=85' }}" alt="{{ $product->name }}">
+                <img src="{{ $product->image_url }}" alt="{{ $product->name }}">
             </div>
             <div>
                 <p class="detail-kicker">{{ $product->category }}</p>
@@ -81,7 +81,7 @@
                     @foreach($relatedProducts as $related)
                         <article class="product-card">
                             <a class="product-image" href="{{ route('products.show',$related) }}">
-                                <img src="{{ $related->image ? (str_starts_with($related->image, 'http') ? $related->image : asset($related->image)) : 'https://images.unsplash.com/photo-1600932713394-7e335f8b9061?auto=format&fit=crop&w=900&q=85' }}" alt="{{ $related->name }}">
+                                <img src="{{ $related->image_url }}" alt="{{ $related->name }}">
                             </a>
                             <div class="product-body">
                                 <p class="product-category">{{ $related->category }}</p>

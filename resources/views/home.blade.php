@@ -128,8 +128,8 @@
                     @foreach ($products as $product)
                         <article class="product-card">
                             <div class="product-image">
-                                @if ($product->image)
-                                    <img src="{{ str_starts_with($product->image, 'http://') || str_starts_with($product->image, 'https://') ? $product->image : asset($product->image) }}" alt="{{ $product->name }}" loading="lazy">
+                                @if ($product->image_url)
+                                    <img src="{{ $product->image_url }}" alt="{{ $product->name }}" loading="lazy">
                                 @else
                                     <svg viewBox="0 0 48 48" fill="none" aria-hidden="true"><path d="M8 36.5 18.5 25l7 7L34 21l7 9.5V39H8v-2.5Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><circle cx="17" cy="15" r="4" stroke="currentColor" stroke-width="2"/><path d="M8 9h32v30H8z" stroke="currentColor" stroke-width="2"/></svg>
                                 @endif

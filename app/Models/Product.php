@@ -110,4 +110,28 @@ class Product extends Model
         $currency = $this->currency ?: 'USD';
         return $currency . ' ' . number_format((float) ($this->indicative_price ?? 0), 2);
     }
+
+    /**
+     * Accessor for product image URL with proper storage and fallback support.
+     */
+    public function getImageUrlAttribute(): string
+    {
+        if (empty($this->image)) {
+            return asset('images/products/refined-palm-oil.jpg');
+        }
+
+        if (str_starts_with($this->image, 'http://') || str_starts_with($this->image, 'https://')) {
+            return $this->image;
+        }
+
+        if (str_starts_with($this->image, 'images/')) {
+            return asset($this->image);
+        }
+
+        if (str_starts_with($this->image, 'storage/')) {
+            return asset($this->image);
+        }
+
+        return asset('storage/' . ltrim($this->image, '/'));
+    }
 }

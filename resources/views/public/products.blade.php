@@ -45,7 +45,7 @@
                 @foreach($products as $product)
                     <article class="product-card reveal">
                         <a class="product-image" href="{{ route('products.show',$product) }}">
-                            <img src="{{ $product->image ? (str_starts_with($product->image, 'http') ? $product->image : asset($product->image)) : 'https://images.unsplash.com/photo-1600932713394-7e335f8b9061?auto=format&fit=crop&w=900&q=85' }}" alt="{{ $product->name }}">
+                            <img src="{{ $product->image_url }}" alt="{{ $product->name }}">
                         </a>
                         <div class="product-body">
                             <p class="product-category">{{ $product->category }}</p>
